@@ -20,26 +20,6 @@ function setup() {
       kanji : '',
       kana: '',
       english: ''
-  }, {
-      kanji : '',
-      kana: '',
-      english: ''
-  }, {
-      kanji : '',
-      kana: '',
-      english: ''
-  }, {
-      kanji : '',
-      kana: '',
-      english: ''
-  }, {
-      kanji : '',
-      kana: '',
-      english: ''
-  }, {
-      kanji : '',
-      kana: '',
-      english: ''
   }
         
         
@@ -65,23 +45,24 @@ function setup() {
   
   txtSize = 32 * txtScale;
   bg = 220;
+  txtKanjiScaler = 1.5;
   
 }
 
 function draw() {
   background(bg);
-  textSize(txtSize);
+  textSize(txtSize * txtKanjiScaler);
   //if we want to search for a specific kanjia nd tis kana and that
   //index = dict.map(x => x.english).indexOf('to meet');
   textAlign(CENTER);
-  text(cur.kanji,width/2,width/8 + txtSize); 
+  text(cur.kanji,width/2,width/8 + txtSize * txtKanjiScaler); 
   
   if (Checking) {
     
-    text(cur.kana, width/2, width/8 + txtSize * 2.1);
-    textSize(txtSize/2);
-    text(cur.english, width/2, width/8 + txtSize *3);
-    textSize(txtSize);
+    text(cur.kana, width/2, width/8 + txtSize * 2.1 * txtKanjiScaler);
+    textSize(txtSize * txtKanjiScaler/2);
+    text(cur.english, width/2, width/8 + txtSize *3 * txtKanjiScaler);
+    textSize(txtSize * txtKanjiScaler);
   }
   
   
@@ -94,7 +75,7 @@ function draw() {
   text("Press 'Left Shift' to change modes", width*(1/5),height - txtSize*3);
   text("If on Mobile tap Left Side to chnage Mode, ", width*(1/5),height - txtSize*2);
   text("Tap Right Side to continue", width*(1/5),height - txtSize);
-  text("v_002d", txtSize/4,txtSize/2);
+  text("v_002e", txtSize/4,txtSize/2);
 }
 
 function keyPressed() {
@@ -119,8 +100,8 @@ function keyPressed() {
     
       Checking = false;
       learning = curModeDict[curMode];
-      
-   
+      cur = random(learning); 
+     
   }
   
   
@@ -137,6 +118,7 @@ function touchStarted() {
     
       Checking = false;
       learning = curModeDict[curMode];
+      cur = random(learning);
   } else if (mouseX >= width/2 && mouseX < width) {
     if (Checking) {
         Checking = false;
