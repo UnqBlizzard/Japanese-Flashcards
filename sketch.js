@@ -57,11 +57,12 @@ function setup() {
   Checking = false;
   
   txtSize = 32;
+  bg = 220;
   
 }
 
 function draw() {
-  background(220);
+  background(bg);
   textSize(txtSize);
   //if we want to search for a specific kanjia nd tis kana and that
   //index = dict.map(x => x.english).indexOf('to meet');
@@ -119,6 +120,7 @@ function keyPressed() {
 
 
 function touchStarted() {
+  bg = int(random(250));
   
   if (mouseX < canvasWidth/2 && mouseX > 0) {
     if (curMode < 4) {
