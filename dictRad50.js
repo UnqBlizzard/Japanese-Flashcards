@@ -32,11 +32,11 @@ dictRad50 =[{
       kana: 'しんにょう',
       english: 'go/road radical'
   }, {
-      kanji : '艹 /艸 (e.g 草 grass) ',
+      kanji : '艹 /艸 ',
       kana: 'くさ',
       english: 'grass/plant radical'
   }, {
-      kanji : '宀 (屋根/やね, ウ/ウ冠/うかんむり)',
+      kanji : '宀',
       kana: ' ',
       english: 'roof/crown radical'
   }, {
@@ -48,9 +48,13 @@ dictRad50 =[{
       kana: 'おんな, ジョ',
       english: 'woman'
   }, {
-      kanji : '阝 L:(⻖/阜/) / R:(⻏/邑/) ',
-      kana: 'L:こざと , R:おおざと',
-      english: 'L: wall/hill/village radical, R: large village radical '
+      kanji : '阝 L:(⻖/阜/) ',
+      kana: 'L:こざと',
+      english: 'L: wall/hill/village radical '
+  },{
+      kanji : '阝 R:(⻏/邑/)',
+      kana: 'おおざと',
+      english: 'R: large village radical'
   }, {
       kanji : '金',
       kana: 'かね/キン',
