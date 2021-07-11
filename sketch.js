@@ -1,5 +1,12 @@
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
+  //deafult canvas is 400,400
+  txtScale = 1;
+  if (windowWidth >= windowHeight) {
+    txtScale = windowHeight/400;
+  } else {
+    txtScale = windowWidth/400;
+  }
   
   dict =[{
       kanji : '会う',
@@ -56,7 +63,7 @@ function setup() {
 
   Checking = false;
   
-  txtSize = 32;
+  txtSize = 32 * txtScale;
   bg = 220;
   
 }
@@ -87,7 +94,7 @@ function draw() {
   text("Press 'Left Shift' to change modes", width*(1/5),height - txtSize*3);
   text("If on Mobile tap Left Side to chnage Mode, ", width*(1/5),height - txtSize*2);
   text("Tap Right Side to continue", width*(1/5),height - txtSize);
-  text("v_002c", txtSize/4,txtSize/2);
+  text("v_002d", txtSize/4,txtSize/2);
 }
 
 function keyPressed() {
@@ -121,7 +128,7 @@ function keyPressed() {
 
 
 function touchStarted() {
-  bg = int(random(250));
+  
   
   if (mouseX < width/2 && mouseX > 0) {
     if (curMode < 4) {
