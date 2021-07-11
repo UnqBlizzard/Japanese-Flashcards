@@ -84,8 +84,8 @@ function draw() {
   text("Press 'Enter' to go to random kanji", width*(1/5),height - txtSize*5);
   text("Currently Learning: '" + curModeTxt[curMode] + "'", width*(1/5),height - txtSize*4);
   text("Press 'Left Shift' to change modes", width*(1/5),height - txtSize*3);
-  text("If on Mobile: ", width*(1/5),height - txtSize*2);
-  text("Tap Left Side to change mode, Right Side to continue", width*(1/5),height - txtSize);
+  text("If on Mobile tap Left Side to chnage Mode, ", width*(1/5),height - txtSize*2);
+  text("Tap Right Side to continue", width*(1/5),height - txtSize);
 }
 
 function keyPressed() {
@@ -139,5 +139,7 @@ function touchStarted() {
       Checking = true;
     }
   }
+  
+  return falss;
   
 }
