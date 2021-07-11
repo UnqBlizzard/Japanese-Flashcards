@@ -80,10 +80,12 @@ function draw() {
   //extra info
   textAlign(LEFT);
   textSize(txtSize*0.5);
-  text("Press 'Space' to show kana/english", width*(1/5),height - txtSize*4);
-  text("Press 'Enter' to go to random kanji", width*(1/5),height - txtSize*3);
-  text("Currently Learning: '" + curModeTxt[curMode] + "'", width*(1/5),height - txtSize*2);
-  text("Press 'Left Shift' to change modes", width*(1/5),height - txtSize);
+  text("Press 'Space' to show kana/english", width*(1/5),height - txtSize*6);
+  text("Press 'Enter' to go to random kanji", width*(1/5),height - txtSize*5);
+  text("Currently Learning: '" + curModeTxt[curMode] + "'", width*(1/5),height - txtSize*4);
+  text("Press 'Left Shift' to change modes", width*(1/5),height - txtSize*3);
+  text("If on Mobile: ", width*(1/5),height - txtSize*2);
+  text("Tap Left Side to change mode, Right Side to continue", width*(1/5),height - txtSize);
 }
 
 function keyPressed() {
@@ -91,7 +93,7 @@ function keyPressed() {
     
     Checking = true;
     
-  } else if (keyCode == 13) { //left shift
+  } else if (keyCode == 13) { //enter
     
       Checking = false;
       tempCur = cur;
@@ -100,7 +102,7 @@ function keyPressed() {
           cur = random(learning);
         }
     
-  } else if (keyCode == 16) { //enter
+  } else if (keyCode == 16) { //left shift
       
       if (curMode < 4) {
         curMode += 1;
@@ -112,5 +114,30 @@ function keyPressed() {
    
   }
   
+  
+}
+
+
+function touchStarted() {
+  
+  if (mouseX < canvasWidth/2 && mouseX > 0) {
+    if (curMode < 4) {
+        curMode += 1;
+      } else {curMode = 0;}
+    
+      Checking = false;
+      learning = curModeDict[curMode];
+  } else if (mouseX >= canvasWidth/2 && mouseX < canvasWidth) {
+    if (Checking) {
+        Checking = false;
+        tempCur = cur;
+        cur = random(learning);
+        while (cur == tempCur) { //stop back to back duplicates
+          cur = random(learning);
+        }
+    } else {
+      Checking = true;
+    }
+  }
   
 }
