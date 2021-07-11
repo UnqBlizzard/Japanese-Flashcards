@@ -87,6 +87,7 @@ function draw() {
   text("Press 'Left Shift' to change modes", width*(1/5),height - txtSize*3);
   text("If on Mobile tap Left Side to chnage Mode, ", width*(1/5),height - txtSize*2);
   text("Tap Right Side to continue", width*(1/5),height - txtSize);
+  text("v_002b", txtSize/4,txtSize/2);
 }
 
 function keyPressed() {
