@@ -87,7 +87,7 @@ function draw() {
   text("Press 'Left Shift' to change modes", width*(1/5),height - txtSize*3);
   text("If on Mobile tap Left Side to chnage Mode, ", width*(1/5),height - txtSize*2);
   text("Tap Right Side to continue", width*(1/5),height - txtSize);
-  text("v_002b", txtSize/4,txtSize/2);
+  text("v_002c", txtSize/4,txtSize/2);
 }
 
 function keyPressed() {
@@ -123,14 +123,14 @@ function keyPressed() {
 function touchStarted() {
   bg = int(random(250));
   
-  if (mouseX < canvasWidth/2 && mouseX > 0) {
+  if (mouseX < width/2 && mouseX > 0) {
     if (curMode < 4) {
         curMode += 1;
       } else {curMode = 0;}
     
       Checking = false;
       learning = curModeDict[curMode];
-  } else if (mouseX >= canvasWidth/2 && mouseX < canvasWidth) {
+  } else if (mouseX >= width/2 && mouseX < width) {
     if (Checking) {
         Checking = false;
         tempCur = cur;
