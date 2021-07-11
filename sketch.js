@@ -37,9 +37,9 @@ function setup() {
       english: 'to meet'
       }
   
-  curModeTxt = ['Kanji', 'Radicals', 'Rad 25%', 'Rad 50%', 'Rad 75%'];
+  curModeTxt = ['Kanji', 'Radicals', 'Rad 25%', 'Rad 50%', 'Rad 75%','Katakana'];
   curMode = 0;
-  curModeDict = [dict,dictRad,dictRad25,dictRad50, dictRad75];
+  curModeDict = [dict,dictRad,dictRad25,dictRad50, dictRad75, dictKatakana];
 
   Checking = false;
   
@@ -75,7 +75,7 @@ function draw() {
   text("Press 'Left Shift' to change modes", width*(1/5),height - txtSize*3);
   text("If on Mobile tap Left Side to chnage Mode, ", width*(1/5),height - txtSize*2);
   text("Tap Right Side to continue", width*(1/5),height - txtSize);
-  text("v_002e", txtSize/4,txtSize/2);
+  text("v_002f", txtSize/4,txtSize/2);
 }
 
 function keyPressed() {
@@ -94,7 +94,7 @@ function keyPressed() {
     
   } else if (keyCode == 16) { //left shift
       
-      if (curMode < 4) {
+      if (curMode < 5) {
         curMode += 1;
       } else {curMode = 0;}
     
@@ -112,7 +112,7 @@ function touchStarted() {
   
   
   if (mouseX < width/2 && mouseX > 0) {
-    if (curMode < 4) {
+    if (curMode < 5) {
         curMode += 1;
       } else {curMode = 0;}
     
