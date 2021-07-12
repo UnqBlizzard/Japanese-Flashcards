@@ -4,8 +4,12 @@ function setup() {
   txtScale = 1;
   if (windowWidth >= windowHeight) {
     txtScale = windowHeight/400;
+    xpostext = width/10;
+   // xposkanji = width*4/5
   } else {
     txtScale = windowWidth/400;
+    xpostext = width/5;
+    //xposkanji = width/2
   }
   
   dict =[{
@@ -69,13 +73,13 @@ function draw() {
   //extra info
   textAlign(LEFT);
   textSize(txtSize*0.5);
-  text("Press 'Space' to show kana/english", width*(1/5),height - txtSize*6);
-  text("Press 'Enter' to go to random kanji", width*(1/5),height - txtSize*5);
-  text("Currently Learning: '" + curModeTxt[curMode] + "'", width*(1/5),height - txtSize*4);
-  text("Press 'Left Shift' to change modes", width*(1/5),height - txtSize*3);
-  text("If on Mobile tap Left Side to chnage Mode, ", width*(1/5),height - txtSize*2);
-  text("Tap Right Side to continue", width*(1/5),height - txtSize);
-  text("v_002f", txtSize/4,txtSize/2);
+  text("Press 'Space' to show kana/english", xpostext,height - txtSize*6);
+  text("Press 'Enter' to go to random kanji", xpostext,height - txtSize*5);
+  text("Currently Learning: '" + curModeTxt[curMode] + "'", xpostext,height - txtSize*4);
+  text("Press 'Left Shift' to change modes", xpostext,height - txtSize*3);
+  text("If on Mobile tap Left Side to chnage Mode, ", xpostext,height - txtSize*2);
+  text("Tap Right Side to continue", xpostext,height - txtSize);
+  text("v_002g", txtSize/4,txtSize/2);
 }
 
 function keyPressed() {
