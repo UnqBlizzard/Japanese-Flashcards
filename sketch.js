@@ -2,7 +2,14 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   //deafult canvas is 400,400
   txtScale = 1;
-  ver = "v_002i";
+  floatingMin = 8;
+  floatingNo = int(width/50);
+  if (floatingNo < floatingMin) {
+    floatingNo = floatingMin;
+  }
+  //15 is good for 800; 
+  
+  ver = "v_002j";
   if (width >= height) {
     txtScale = height/400;
     xpostext = width/100;
@@ -52,24 +59,32 @@ function setup() {
   bg = 220;
   txtKanjiScaler = 1.5;
   
+  floatingKanjis = []
+  for (i = 0; i < floatingNo; i ++) {
+    floatingKanjis.push(new floatingKanji(random(random(curModeDict)).kanji, -200 , random(10, height), random(txtSize/6, txtSize), random(55, 150), random(0.2,1) ));
+  }
+  
 }
 
 function draw() {
   background(bg);
-  textSize(txtSize * txtKanjiScaler * 1.2);
-  //if we want to search for a specific kanjia nd tis kana and that
-  //index = dict.map(x => x.english).indexOf('to meet');
-  textAlign(CENTER);
-  text(cur.kanji,width/2,height/8 + txtSize * txtKanjiScaler); 
-  
-  textSize(txtSize * txtKanjiScaler);
-  if (Checking) {
+  //bg floating kanjis
+  for (i = floatingKanjis.length-1; i > 0; i--) {
+    floatingKanjis[i].show();
     
-    text(cur.kana, width/2, height/8 + txtSize * 2.1 * txtKanjiScaler);
-    textSize(txtSize * txtKanjiScaler/2);
-    text(cur.english, width/2, height/8 + txtSize *3 * txtKanjiScaler);
-    textSize(txtSize * txtKanjiScaler);
+    if (floatingKanjis[i].x > width) {
+      if (floatingNo < floatingKanjis.length) {
+        floatingKanjis.splice(i,1);
+      } else {
+        floatingKanjis[i] = new floatingKanji(random(random(curModeDict)).kanji, 0, random(10, height), random(txtSize/6, txtSize), random(55, 150), random(0.2,1) );
+      }
+   
+    }
+    
   }
+  
+  fill(0);
+  
   
   
   //extra info
@@ -90,6 +105,23 @@ function draw() {
   // text("Press 'Left Shift' to change modes", xpostext,height - txtSize*3);
   // text("If on Mobile tap Left Side to chnage Mode, ", xpostext,height - txtSize*2);
   // text("Tap Right Side to continue", xpostext,height - txtSize);
+  
+  
+  textSize(txtSize * txtKanjiScaler * 1.2);
+  //if we want to search for a specific kanjia nd tis kana and that
+  //index = dict.map(x => x.english).indexOf('to meet');
+  textAlign(CENTER);
+  text(cur.kanji,width/2,height/8 + txtSize * txtKanjiScaler); 
+  
+  textSize(txtSize * txtKanjiScaler);
+  if (Checking) {
+    
+    text(cur.kana, width/2, height/8 + txtSize * 2.1 * txtKanjiScaler);
+    textSize(txtSize * txtKanjiScaler/2);
+    text(cur.english, width/2, height/8 + txtSize *3 * txtKanjiScaler);
+    textSize(txtSize * txtKanjiScaler);
+  }
+  
 }
 
 function keyPressed() {
@@ -152,6 +184,14 @@ function touchStarted() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  floatingMin = 8;
+  floatingNo = int(width/50);
+  if (floatingNo < floatingMin) {
+    floatingNo = floatingMin;
+  }
+  while (floatingNo > floatingKanjis.length) {
+    floatingKanjis.push(new floatingKanji(random(random(curModeDict)).kanji, -200 , random(10, height), random(txtSize/6, txtSize), random(55, 150), random(0.2,1) ));
+  }
   //deafult canvas is 400,400
   txtScale = 1;
   if (width >= height) {
