@@ -2,7 +2,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   //deafult canvas is 400,400
   txtScale = 1;
-  ver = "v_002h";
+  ver = "v_002i";
   if (width >= height) {
     txtScale = height/400;
     xpostext = width/100;
@@ -56,12 +56,13 @@ function setup() {
 
 function draw() {
   background(bg);
-  textSize(txtSize * txtKanjiScaler);
+  textSize(txtSize * txtKanjiScaler * 1.2);
   //if we want to search for a specific kanjia nd tis kana and that
   //index = dict.map(x => x.english).indexOf('to meet');
   textAlign(CENTER);
   text(cur.kanji,width/2,height/8 + txtSize * txtKanjiScaler); 
   
+  textSize(txtSize * txtKanjiScaler);
   if (Checking) {
     
     text(cur.kana, width/2, height/8 + txtSize * 2.1 * txtKanjiScaler);
@@ -74,12 +75,12 @@ function draw() {
   //extra info
   textAlign(LEFT);
   textSize(txtSize*0.5);
-  text("Press 'Space' to show kana/english", xpostext,height - txtSize*6*0.5);
-  text("Press 'Enter' to go to random kanji", xpostext,height - txtSize*5*0.5);
-  text("Currently Learning: '" + curModeTxt[curMode] + "'", xpostext,height - txtSize*4*0.5);
-  text("Press 'Left Shift' to change modes", xpostext,height - txtSize*3*0.5);
-  text("If on Mobile tap Left Side to chnage Mode, ", xpostext,height - txtSize*2*0.5);
-  text("Tap Right Side to continue", xpostext,height - txtSize*0.5);
+  text("Press 'Space' to show kana/english", xpostext,height - txtSize*6*0.5*1.05);
+  text("Press 'Enter' to go to random kanji", xpostext,height - txtSize*5*0.5*1.05);
+  text("Currently Learning: '" + curModeTxt[curMode] + "'", xpostext,height - txtSize*4*0.5*1.05);
+  text("Press 'Left Shift' to change modes", xpostext,height - txtSize*3*0.5*1.05);
+  text("If on Mobile tap Left Side to change Mode, ", xpostext,height - txtSize*2*0.5*1.05);
+  text("Tap Right Side to continue", xpostext,height - txtSize*0.5*1.05);
   text(ver, txtSize/4,txtSize/2);
   // textAlign(LEFT);
   // textSize(txtSize*0.5);
