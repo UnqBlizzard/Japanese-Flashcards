@@ -12,7 +12,7 @@ function setup() {
   
   //15 is good for 800; 
   
-  ver = "v_002j";
+  ver = "v_002k";
   if (width >= height) {
     txtScale = height/400;
     xpostext = width/100;
