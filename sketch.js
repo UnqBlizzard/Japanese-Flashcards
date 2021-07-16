@@ -1,4 +1,6 @@
 function setup() {
+  
+  
   createCanvas(windowWidth, windowHeight);
   //deafult canvas is 400,400
   txtScale = 1;
@@ -7,6 +9,7 @@ function setup() {
   if (floatingNo < floatingMin) {
     floatingNo = floatingMin;
   }
+  
   //15 is good for 800; 
   
   ver = "v_002j";
@@ -61,10 +64,47 @@ function setup() {
   
   floatingKanjis = []
   for (i = 0; i < floatingNo; i ++) {
-    floatingKanjis.push(new floatingKanji(random(random(curModeDict)).kanji, -200 , random(10, height), random(txtSize/6, txtSize), random(55, 150), random(0.2,1) ));
+    newKanji = random(random(curModeDict)).kanji;
+    while (newKanji == null) {
+      newKanji = random(random(curModeDict)).kanji;
+    }
+    floatingKanjis.push(new floatingKanji(newKanji, -200 , random(10, height), random(txtSize/6, txtSize), random(55, 150), random(0.2,1) ));
   }
+
+      //TESTING LOADING A LOT OF STUFF INTO A DICT automatically #####################################
+  // arr = splitTokens(radDict75STL, (' (', ') ','; '));
+  // list = [];
+  // LoadedString = "";
+  // //index = -1;
+  // for (i = 0; i < arr.length - 2 || i == 0; i+=3 ) {
+  //   if (i == 0) LoadedString += "TempDict = [";
+  //     //list.push({kanji: arr[i], kana : arr[i+1], english : arr[i+2]});
+      
+  //     if (arr[i+1] != "") {
+  //       if (arr[i+1].match('\\(') == null) {
+  //         Kana = ' ';
+  //         arr.splice(i,0, ' ');
+  //       } else Kana = arr[i+1].replace('(','');
+  //     }
+      
+  //     if ( arr[i+2] != "") {
+  //       if (arr[i+2].match(/[a-z]/i) == null) {
+  //         index = i + 1;
+  //         arr.splice(index,0, ' ');
+  //         eng = ' ';
+  //       } else eng = arr[i+2];
+  //     }
+
+  //     LoadedString += "{Kanji: '" + arr[i] + "', kana: '" + Kana + "', english : '" + eng + "'}"
+  //   if (i == arr.length-1) LoadedString += "];";
+  //   else LoadedString += ", ";
+  // }
+  
+    
   
 }
+
+
 
 function draw() {
   background(bg);

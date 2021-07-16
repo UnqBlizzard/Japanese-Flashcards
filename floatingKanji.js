@@ -1,11 +1,12 @@
 class floatingKanji {
-  constructor(kanji,x,y,d,col,spd) {
+  constructor(k,x,y,d,col,spd) {
     this.x = x;
     this.y = y;
     this.d = d;
     this.col = col;
     this.spd = spd;
-    this.kanji = kanji.charAt(0);
+    
+    this.kanji = k.charAt(0);
   }
   
   
